@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="WpfBarcode.Controls.Symbologies.Ean.EanView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBarcode.Controls.Symbologies.Ean"
+             xmlns:core="clr-namespace:WpfBarcode.Controls.Bar"
+             d:DataContext="{d:DesignInstance local:Ean8ViewModel, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Styles/Default.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <Viewbox Stretch="Uniform" Visibility="{Binding IsCodeValid, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Margin="0,0,5,0" FontSize="9"
+                           Text="{Binding SystemDigit}" 
+                           Visibility="{Binding DisplayCode, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                <ItemsControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"  
+                              ItemsSource="{Binding StartSentinelBars}" Style="{StaticResource ItemsControlBarsStyle}" />
+
+                <ItemsControl Grid.Column="2" Grid.Row="1" 
+                              ItemsSource="{Binding LeftHandDigits}" Style="{StaticResource ItemsControlCodeStyle}" 
+                              Visibility="{Binding DisplayCode, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                
+                <ItemsControl Grid.Column="2" Grid.Row="0" 
+                              ItemsSource="{Binding LeftHandBars}" 
+                              Style="{StaticResource ItemsControlBarsStyle}"/>
+
+                <ItemsControl Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" 
+                              ItemsSource="{Binding CenterGuardBars}" 
+                              Style="{StaticResource ItemsControlBarsStyle}"/>
+
+                <ItemsControl Grid.Column="4" Grid.Row="1" 
+                              ItemsSource="{Binding RightHandDigits}" 
+                              Style="{StaticResource ItemsControlCodeStyle}" 
+                              Visibility="{Binding DisplayCode, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                
+                <ItemsControl Grid.Column="4" Grid.Row="0" 
+                              ItemsSource="{Binding RightHandBars}" 
+                              Style="{StaticResource ItemsControlBarsStyle}"/>
+                
+                <ItemsControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" 
+                              ItemsSource="{Binding EndSentinel}" 
+                              Style="{StaticResource ItemsControlBarsStyle}"/>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

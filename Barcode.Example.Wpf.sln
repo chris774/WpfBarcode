@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25920.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeApp.Example.Wpf", "Barcode.Example.Wpf\BarcodeApp.Example.Wpf.csproj", "{1BB782A7-F050-4B85-AFE0-0619947D2606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBarcode", "Barcode\WpfBarcode.csproj", "{5AFBAB20-96C3-4438-8647-313C04003F3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BB782A7-F050-4B85-AFE0-0619947D2606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB782A7-F050-4B85-AFE0-0619947D2606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB782A7-F050-4B85-AFE0-0619947D2606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB782A7-F050-4B85-AFE0-0619947D2606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFBAB20-96C3-4438-8647-313C04003F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFBAB20-96C3-4438-8647-313C04003F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFBAB20-96C3-4438-8647-313C04003F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFBAB20-96C3-4438-8647-313C04003F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

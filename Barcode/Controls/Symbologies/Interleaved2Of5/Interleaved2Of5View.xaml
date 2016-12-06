@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WpfBarcode.Controls.Symbologies.Interleaved2Of5.Interleaved2Of5View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBarcode.Controls.Symbologies.Interleaved2Of5"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance local:Interleaved2Of5ViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Styles/Default.xaml"/>
+    </UserControl.Resources>
+    <Viewbox Stretch="Uniform">
+        <StackPanel>
+            <ItemsControl 
+                ItemsSource="{Binding Bars}" 
+                Style="{StaticResource ItemsControlBarsStyle}" />
+            <ItemsControl 
+                ItemsSource="{Binding CodeText}" 
+                Visibility="{Binding DisplayCode, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                Style="{StaticResource ItemsControlCodeStyle}">
+            </ItemsControl>
+        </StackPanel>
+    </Viewbox>
+</UserControl>

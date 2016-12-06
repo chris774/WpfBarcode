@@ -1,0 +1,41 @@
+﻿<Window x:Class="BarcodeApp.Example.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:barcode="clr-namespace:WpfBarcode;assembly=WpfBarcode"
+        xmlns:wpf="clr-namespace:BarcodeApp.Example.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="350" MinWidth="450" Height="350" Width="450">
+    <Window.DataContext>
+        <wpf:MainViewModel/>
+    </Window.DataContext>
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" LastChildFill="True">
+            <TextBlock Text="Symbology:" Margin="0,0,10,0"/>
+            <ComboBox  ItemsSource="{Binding Symbologies}" SelectedItem="{Binding SelectedSymbology}" />    
+        </DockPanel>
+        
+        <TextBox Grid.Row="1" Text="{Binding SelectedCode, UpdateSourceTrigger=PropertyChanged}" Margin="0,8,0,0" />
+        <Border Grid.Row="2" Margin="0,10" BorderBrush="Gray" BorderThickness="1" >
+            <Grid>
+                <barcode:Barcode Symbology="{Binding SelectedSymbology}" Code="{Binding SelectedCode}" />
+            </Grid>
+        </Border>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Width:" />
+            <TextBox Width="80" Margin="5,0" Text="{Binding ImageWidth}"/>
+            <TextBlock Text="Height:" />
+            <TextBox Width="80" Margin="5,0" Text="{Binding ImageHeight}" />
+            <Button Content="Save" Width="80"  Command="{Binding SaveCommand}"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
