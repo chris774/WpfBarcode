@@ -1,0 +1,2 @@
+# WpfBarcode
+WPF Barcode Control
