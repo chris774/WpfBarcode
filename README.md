@@ -3,10 +3,10 @@ WPF Barcode Control
 
 This is a WPF/XAML control to generate barcodes. The following Symbologies are supported
 
-> Interleaved 2 of 5
-> Ean 8
-> Ean 13
-> Code 39
+> - Interleaved 2 of 5
+> - Ean 8
+> - Ean 13
+> - Code 39
 
 How to use:
 
